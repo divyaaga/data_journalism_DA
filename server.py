@@ -51,35 +51,7 @@ def index():
         staten_island_endpoints.append([staten_island_y1, staten_island_y2])
 
         
-    return render_template(
-    "index.html",
-    bronx_endpoints=bronx_endpoints,
-    brooklyn_endpoints=brooklyn_endpoints,
-    manhattan_endpoints=manhattan_endpoints,
-    queens_endpoints=queens_endpoints,
-    staten_island_endpoints_endpoints=staten_island_endpoints,
-    years=years
-    )
+    return render_template("index.html" )
     print (data)
-    
-@app.route('/year')
-def year(): 
-    f = open("data/life_expectancy.json", "r")
-    data = json.load(f)
-    f.close()
-    requested_year = request.args.get("year")
-
-    usa_value = float(data["USA"][str(requested_year)])
-    canada_value = float(data["Canada"][str(requested_year)])
-    mexico_value = float(data["Mexico"][str(requested_year)]) 
-
-    return render_template(
-        "year.html",
-        year=requested_year,
-        usa_value=usa_value,
-        canada_value=canada_value,
-        mexico_value=mexico_value
-    )
-
 
 app.run(debug=True)
