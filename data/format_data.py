@@ -74,7 +74,7 @@ dictionary = {
 f1.close()
 
 #Save the json object to a file
-f2 = open("car_crashes.json", "w")
+f2 = open("data.json", "w")
 json.dump(dictionary, f2, indent = 4)
 
 f2.close()
