@@ -1,0 +1,39 @@
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <title>This is index.html</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>This is index.htmll</h1>
+
+  <!--<div id="line_graph_all">
+    {% include 'line_graph.svg' %}
+  </div>-->
+  
+  <div>
+    <form action="/year" method="GET">
+      <label for="year_select">Choose a year:</label><br>
+      <select name="year" id="year_select">
+      </select>
+      <script>
+        const select = document.getElementById("year_select");
+        for (let year = 1960; year <= 2022; year++) {
+          const option = document.createElement("option");
+          option.value = year;
+          option.text = year;
+          select.appendChild(option);
+        }
+      </script>
+      <input type="submit" value="Submit">
+    <form>
+  </div>
+
+  <footer>
+    All data from <a href="https://catalog.data.gov/dataset/motor-vehicle-collisions-crashes"> Data.Gov </a>.
+  </footer>
+</body>
+</html>
