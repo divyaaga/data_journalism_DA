@@ -11,16 +11,37 @@
   <h1>Car Crashes in New York City</h1>
   <p class="overall-description">Hi! My project explores the number of car crashes in the different boroughs of NYC over the last ten years. I wanted to see if various external events, like COVID, had significant impacts on the number of car crashes. I also wanted to see if one borough consistently had more car crashes than the others.   </p>
 
-  <h3>How I Got My Data</h3>
+  <h2>How I Got My Data</h2>
   <p class="data-description">I first found my dataset from data.gov. Then, I removed all of the car crashes that did not have a borough attached. This means that the data that I haven't presented does not tell the complete story; rather, it is a reflection of all the car crashes that were recorded appropriately for my project. Then I sorted all the car crashes by borough and year and summed the data.</p>
 
-  <h3>Vocab</h3>
+  <h2>Vocab</h2>
   <p class="vocab">Data.gov: An open access US government website containing over 300,000 data sets.</p>
   <p class="vocab">Car Crashes: Any incident involving a collision between at least two vehicles—this collision does not need to be fatal.</p>
-  <p class="vocab">Boroughs: NYC is broken up into 5 boroughs: The Bronx, Brooklyn, Manhattan, Queens, and Staten Island.</p>
+  <p class="borough—vocab">Boroughs: NYC is broken up into 5 boroughs: The Bronx, Brooklyn, Manhattan, Queens, and Staten Island.</p>
   
-  <br><br>   
-  <br><br> 
+  <h2>Prototypes</h2>  
+  
+  <h3>Graph</h3>
+  <img class="macro-image" src="{{ url_for('static', filename='macro_prototype.jpg') }}" alt="macro-image" width = 45% height = 35%>
+  <p class="macro-description">I chose to make a line graph to show all of the data over the years—I thought this was a good way to display all the data in a straightforward way. I also wanted to make it easy for users to pinpoint a particular year while still being able to understand larger trends.</p>
+  <p class="macro-description">Some of the feedback I recieved about this design was: 
+    <li>Add a button at the bottom allowing users to naviagte to a particular year (Like Life Expectancy)</li>
+    <li>Switch the order of interpretations and takeaways</li> 
+    <li>Move both of those sections to below the graph</li>
+  </p>
+  <p class="macro-description">For my final design, I chose to implement all of these changes. I especially thought the suggestion to switch the order of the two sections was helpful, as I think my project now makes way more logical sense.</p>
+
+  <h3>Maps</h3>
+  <img class="micro-image" src="{{ url_for('static', filename='micro_prototype.jpg') }}" alt="micro-image" width = 35% height = 40%>
+  <p class="micro-description">I chose to make individual maps for each year of data. I liked that users would be able to compare individual boroughs. I had originally chosen to make the colors a greyscale because I thought that that would be the easiest way to tell the shades apart, but I wanted to include colors on the outline of the boroughs to match the line graph colors.</p>
+  <p class="micro-description">Some of the feedback I recieved about this design was: 
+    <li>Don't use greyscale—you can still use a more neutral color, but choose another option because grey is not engaging </li>
+    <li>Instead of leaving Long Island/Upstate New York uncolored, either make it grey or cut it completely. Also, if you have those regions, include New Jersey as well. </li> 
+    <li>Get rid of the airports—they are distracting and add nothing.</li>
+  </p>
+  <p class="micro-description">For my final design, I chose to implement most of these changes. I decided to include the surrounding regions, but keep them grey. I also chose to make the color scale more brownish instead of grey. </p>
+  
+  <br><br>
   <a href="http://127.0.0.1:5000/index">To the Overview!</a>
   <br><br>
 
