@@ -3,13 +3,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-  <title>This is index.html</title>
+  <title>Overview</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <h1>This is index.html</h1>
+  <h1>Over the Years</h1>
   
+  <div id="line_graph">
+    {% include 'line_graph.svg' %}
+  </div>
+
   <div>
     <form action="/year" method="GET">
       <label for="year_select">Choose a year:</label><br>
@@ -17,7 +21,7 @@
       </select>
       <script>
         const select = document.getElementById("year_select");
-        for (let year = 1960; year <= 2022; year++) {
+        for (let year = 2014; year <= 2024; year++) {
           const option = document.createElement("option");
           option.value = year;
           option.text = year;

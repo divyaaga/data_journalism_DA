@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" width="500" height="500">
+
+ <text class="graph_title" x="250" y="40">Car Crashes</text> 
+
+<g id = lineBronx>
+     {% for point in bronx_endpoints %}
+     <line x1="{{60 + loop.index0 * 7}}"
+          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
+          x2="{{60 + (loop.index0 + 1) * 7}}"
+          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     {% endfor %}
+</g>
+
+<g id = lineBrooklyna>
+     {% for point in brooklyn_endpoints %}
+     <line x1= "{{60 + loop.index0 * 7}}"
+          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
+          x2="{{60 + (loop.index0 + 1) * 7}}"
+          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     {% endfor %}
+</g>
+
+<g id = lineManhattan>
+     {% for point in manhattan_endpoints %}
+     <line x1="{{60 + loop.index0 * 7}}"
+          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
+          x2="{{60 + (loop.index0 + 1) * 7}}"
+          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     {% endfor %}
+</g>
+
+<g id = lineQueenso>
+     {% for point in queens_endpoints %}
+     <line x1="{{60 + loop.index0 * 7}}"
+          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
+          x2="{{60 + (loop.index0 + 1) * 7}}"
+          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     {% endfor %}
+</g>
+
+<g id = lineStatenIsland>
+     {% for point in staten_island_endpoints %}
+     <line x1="{{60 + loop.index0 * 7}}"
+          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
+          x2="{{60 + (loop.index0 + 1) * 7}}"
+          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     {% endfor %}
+</g>
+
+  <line class="axis" x1="30" y1="450" x2="510" y2="450" stroke="black"/>
+  <line class="axis" x1="60" y1="50" x2="60" y2="450" stroke="black" />
+
+
+  {% for year_label in years %}
+    {% if (year_label|float) % 1 == 0 %}
+    <text class="label" x="{{ 45 + loop.index0 * 43 }}" y="465" font-size="15">{{ year_label }}</text>
+     {% endif %}
+  {% endfor %}
+  
+  {% for val in range(55, 90, 5) %}
+  {% set y = 450 - ((val - 55) * (400 / 35)) %}
+  
+  <line x1="55" x2="60" y1="{{ y-20 }}" y2="{{ y-20 }}" stroke="black" />
+
+  <text x="50" y="{{ y -15  }}" font-size="15" text-anchor="end">{{ val }}</text>
+{% endfor %}
+
+{% for year_label in years %}
+  {% if (year_label|float) % 10 == 0 %}
+  <line x1="{{ 60 + loop.index0 * 7.2 }}" y1="445" x2="{{ 60 + loop.index0 * 7 }}" y2="452" stroke="black"/>
+  {% endif %}
+{% endfor %}
+
+<g id="legend" transform="translate(350, 300)">
+  <line x1="0" y1="0" x2="30" y2="0" stroke="blue" stroke-width="2"/>
+  <text x="35" y="5" font-size="14">Bronx</text>
+
+  <line x1="0" y1="20" x2="30" y2="20" stroke="red" stroke-width="2"/>
+  <text x="35" y="25" font-size="14">Brooklyn</text>
+
+  <line x1="0" y1="40" x2="30" y2="40" stroke="green" stroke-width="2"/>
+  <text x="35" y="45" font-size="14">Manhattan</text>
+
+  <line x1="0" y1="60" x2="30" y2="60" stroke="orange" stroke-width="2"/>
+  <text x="35" y="65" font-size="14">Queens</text>
+
+  <line x1="0" y1="80" x2="30" y2="80" stroke="black" stroke-width="2"/>
+  <text x="35" y="85" font-size="14">Staten Island</text>
+</g>
+ <text class="axis_label" transform="translate(20, 320) rotate(270)">Number of Crashes</text>
+  <text class="axis_label" transform="translate(260, 490)">Year</text>
+</svg>

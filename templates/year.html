@@ -1,0 +1,45 @@
+
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <title>Car Crashes in NYC - {{ year }}</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Car Crashes in NYC - {{ year }}</h1>
+
+  <div id="NYC">
+    {% include 'NYC_boroughs.svg' %}
+  </div>
+
+  <script>
+     var bronx=document.getElementsByClassName("The_Bronx")
+     var brooklyn=document.getElementsByClassName("Brooklyn")
+     var manhattan=document.getElementsByClassName("Manhattan")
+     var queens=document.getElementsByClassName("Queens")
+     var staten_island=document.getElementsByClassName("Staten_Island")
+
+     
+  </script>
+
+  <div class="data-display">
+    <p><strong>In the {{year}}, this was the number of car crashes in each borough: </p>
+    <p><strong>Bronx:</strong> {{ bronx_value }} crashes </p>
+    <p><strong>Brooklyn:</strong> {{brooklyn_value }} crashes </p>
+    <p><strong>Manhattan:</strong> {{ manhattan_value }} crashes </p>
+    <p><strong>Queens:</strong> {{ queens_value }} years old </p>
+    <p><strong>Staten Island:</strong> {{ staten_island_value }} years old </p>
+  </div>
+
+
+  <footer>
+    All data from <a href="https://catalog.data.gov/dataset/motor-vehicle-collisions-crashes"> Data.Gov</a>.
+  </footer>
+
+ 
+  
+</body>
+</html>

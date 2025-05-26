@@ -1,4 +1,6 @@
 # flask --app data_server run
+#ASK ABOUT THE UNCLEAN DATA IS IT NECESSARY 
+#DIVYA REMEMBER 
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -12,6 +14,10 @@ with open("data/data.json") as f:
     crash_data = json.load(f)
 
 @app.route('/')
+def about():
+    return render_template("about.html")
+
+@app.route('/index')
 def index():
     f = open("data/data.json", "r")
     data = json.load(f)
@@ -51,7 +57,39 @@ def index():
         staten_island_endpoints.append([staten_island_y1, staten_island_y2])
 
         
-    return render_template("index.html" )
+    return render_template(
+    "index.html",
+    bronx_endpoints=bronx_endpoints,
+    brooklyn_endpoints=brooklyn_endpoints,
+    manhattan_endpoints=manhattan_endpoints,
+    queens_endpoints=queens_endpoints,
+    staten_island_endpoints_endpoints=staten_island_endpoints,
+    years=years
+    )
     print (data)
+
+@app.route('/year')
+def year(): 
+    f = open("data/data.json", "r")
+    data = json.load(f)
+    f.close()
+    requested_year = request.args.get("year")
+    print ("we've reached year")
+    bronx_value = float(data["Bronx"][str(requested_year)])
+    brooklyn_value = float(data["Brooklyn"][str(requested_year)])
+    manhattan_value = float(data["Manhattan"][str(requested_year)]) 
+    queens_value = float(data["Queens"][str(requested_year)]) 
+    staten_island_value = float(data["Staten Island"][str(requested_year)]) 
+
+
+    return render_template(
+        "year.html",
+        year=requested_year,
+        bronx_value=bronx_value,
+        brooklyn_value=brooklyn_value,
+        manhattan_value=manhattan_value,
+        queens_value=queens_value,
+        staten_island_value=staten_island_value
+    )
 
 app.run(debug=True)
