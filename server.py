@@ -15,7 +15,16 @@ with open("data/data.json") as f:
 
 @app.route('/')
 def about():
-    return render_template("about.html")
+    f = open("data/data.json", "r")
+    data = json.load(f)
+    f.close()
+
+    year_list = []
+    for k in data["Bronx"]: 
+        this_year = k 
+        year_list.append(this_year)
+
+    return render_template("about.html", year_list = year_list)
 
 @app.route('/index')
 def index():
@@ -56,7 +65,11 @@ def index():
         staten_island_y2 = float(data["Staten Island"][year2])
         staten_island_endpoints.append([staten_island_y1, staten_island_y2])
 
-        
+    year_list = []
+    for k in data["Bronx"]: 
+        this_year = k 
+        year_list.append(this_year)
+
     return render_template(
     "index.html",
     bronx_endpoints=bronx_endpoints,
@@ -64,7 +77,8 @@ def index():
     manhattan_endpoints=manhattan_endpoints,
     queens_endpoints=queens_endpoints,
     staten_island_endpoints_endpoints=staten_island_endpoints,
-    years=years
+    years=years,
+    year_list = year_list 
     )
     print (data)
 
@@ -81,7 +95,11 @@ def year():
     queens_value = float(data["Queens"][str(requested_year)]) 
     staten_island_value = float(data["Staten Island"][str(requested_year)]) 
 
-
+    year_list = []
+    for k in data["Bronx"]: 
+        this_year = k 
+        year_list.append(this_year)
+    
     return render_template(
         "year.html",
         year=requested_year,
@@ -89,7 +107,8 @@ def year():
         brooklyn_value=brooklyn_value,
         manhattan_value=manhattan_value,
         queens_value=queens_value,
-        staten_island_value=staten_island_value
+        staten_island_value=staten_island_value,
+        year_list = year_list
     )
 
 app.run(debug=True)
