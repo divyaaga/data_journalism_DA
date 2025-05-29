@@ -14,7 +14,7 @@
    {% include 'header.html' %}
   <h1>Car Crashes in NYC - {{ year }}</h1>
 
-  <div id="NYC">
+  <div id="NYC" style="transform: scale(0.4); transform-origin: top left;">
     {% include 'NYC_boroughs.svg' %}
   </div>
 
@@ -25,16 +25,30 @@
      var queens=document.getElementsByClassName("Queens")
      var staten_island=document.getElementsByClassName("Staten_Island")
 
-     
+     for (var i=0; i<bronx.length; i++){
+      bronx[i].style.fill= "hsl(300,100%,{{bronx_scaled}}%)"
+     }
+     for (var i=0; i<brooklyn.length; i++){
+      brooklyn[i].style.fill= "hsl(300,100%,{{brooklyn_scaled}}%)"
+     }
+     for (var i=0; i<manhattan.length; i++){
+      manhattan[i].style.fill= "hsl(300,100%,{{manhattan_scaled}}%)"
+     }
+     for (var i=0; i<queens.length; i++){
+      queens[i].style.fill= "hsl(300,100%,{{queens_scaled}}%)"
+     }
+     for (var i=0; i<staten_island.length; i++){
+      staten_island[i].style.fill= "hsl(300,100%,{{staten_island_scaled}}%)"
+     }
   </script>
 
-  <div class="data-display">
+  <div class="data-display" style="margin-top: -1150px">
     <p><strong>In the {{year}}, this was the number of car crashes in each borough: </p>
     <p><strong>Bronx:</strong> {{ bronx_value }} crashes </p>
     <p><strong>Brooklyn:</strong> {{brooklyn_value }} crashes </p>
     <p><strong>Manhattan:</strong> {{ manhattan_value }} crashes </p>
-    <p><strong>Queens:</strong> {{ queens_value }} years old </p>
-    <p><strong>Staten Island:</strong> {{ staten_island_value }} years old </p>
+    <p><strong>Queens:</strong> {{ queens_value }} crashes </p>
+    <p><strong>Staten Island:</strong> {{ staten_island_value }} crashes </p>
   </div>
 
 

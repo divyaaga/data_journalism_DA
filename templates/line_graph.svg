@@ -4,46 +4,56 @@
 
 <g id = lineBronx>
      {% for point in bronx_endpoints %}
-     <line x1="{{60 + loop.index0 * 7}}"
-          y1="{{450 - ((point[0] - 10000) * (400 / 13000))}}"
-          x2="{{60 + (loop.index0 + 1) * 7}}"
-          y2="{{450 - ((point[1] - 10000) * (400 / 13000))}}"/>
+    <line x1="{{60 + loop.index0 * 43}}"
+            y1="{{ 450 - (point[0] * (400 / 52000)) }}"
+            x2="{{60 + (loop.index0 + 1) * 43}}"
+            y2="{{ 450 - (point[1] * (400 / 52000)) }}"
+            stroke = "blue"
+            stroke-width = "2px"/>
      {% endfor %}
 </g>
 
 <g id = lineBrooklyna>
      {% for point in brooklyn_endpoints %}
-     <line x1= "{{60 + loop.index0 * 7}}"
-          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
-          x2="{{60 + (loop.index0 + 1) * 7}}"
-          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     <line x1="{{60 + loop.index0 * 43}}"
+            y1="{{ 450 - (point[0] * (400 / 52000)) }}"
+            x2="{{60 + (loop.index0 + 1) * 43}}"
+            y2="{{ 450 - (point[1] * (400 / 52000)) }}"
+            stroke = "red"
+            stroke-width = "2px"/>
      {% endfor %}
 </g>
 
 <g id = lineManhattan>
      {% for point in manhattan_endpoints %}
-     <line x1="{{60 + loop.index0 * 7}}"
-          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
-          x2="{{60 + (loop.index0 + 1) * 7}}"
-          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     <line x1="{{60 + loop.index0 * 43}}"
+            y1="{{ 450 - (point[0] * (400 / 52000)) }}"
+            x2="{{60 + (loop.index0 + 1) * 43}}"
+            y2="{{ 450 - (point[1] * (400 / 52000)) }}"
+            stroke = "green"
+            stroke-width = "2px"/>
      {% endfor %}
 </g>
 
-<g id = lineQueenso>
+<g id = lineQueens>
      {% for point in queens_endpoints %}
-     <line x1="{{60 + loop.index0 * 7}}"
-          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
-          x2="{{60 + (loop.index0 + 1) * 7}}"
-          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     <line x1="{{60 + loop.index0 * 43}}"
+            y1="{{ 450 - (point[0] * (400 / 52000)) }}"
+            x2="{{60 + (loop.index0 + 1) * 43}}"
+            y2="{{ 450 - (point[1] * (400 / 52000)) }}"
+            stroke = "orange"
+            stroke-width = "2px"/>
      {% endfor %}
 </g>
 
 <g id = lineStatenIsland>
      {% for point in staten_island_endpoints %}
-     <line x1="{{60 + loop.index0 * 7}}"
-          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
-          x2="{{60 + (loop.index0 + 1) * 7}}"
-          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+     <line x1="{{60 + loop.index0 * 43}}"
+            y1="{{ 450 - (point[0] * (400 / 52000)) }}"
+            x2="{{60 + (loop.index0 + 1) * 43}}"
+            y2="{{ 450 - (point[1] * (400 / 52000)) }}"
+            stroke = "black"
+            stroke-width = "2px"/>
      {% endfor %}
 </g>
 
@@ -57,13 +67,6 @@
      {% endif %}
   {% endfor %}
   
-  {% for val in range(55, 90, 5) %}
-  {% set y = 450 - ((val - 55) * (400 / 35)) %}
-  
-  <line x1="55" x2="60" y1="{{ y-20 }}" y2="{{ y-20 }}" stroke="black" />
-
-  <text x="50" y="{{ y -15  }}" font-size="15" text-anchor="end">{{ val }}</text>
-{% endfor %}
 
 {% for year_label in years %}
   {% if (year_label|float) % 10 == 0 %}
@@ -71,7 +74,19 @@
   {% endif %}
 {% endfor %}
 
-<g id="legend" transform="translate(350, 300)">
+{% for val in range(5000, 55000, 5000) %}
+  {% set y = 450 - (val * (400 / 52000)) %}
+  <line x1="55" x2="60" y1="{{ y }}" y2="{{ y }}" stroke="black" />
+  <text x="53" y="{{ y + 5 }}" font-size="12" text-anchor="end">
+    {% if val >= 1000 %}
+      {{ (val // 1000)|int }}K
+    {% else %}
+      {{ val }}
+    {% endif %}
+  </text>
+{% endfor %}
+
+<g id="legend" transform="translate(350, 100)">
   <line x1="0" y1="0" x2="30" y2="0" stroke="blue" stroke-width="2"/>
   <text x="35" y="5" font-size="14">Bronx</text>
 

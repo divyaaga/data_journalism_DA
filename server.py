@@ -70,18 +70,16 @@ def index():
         this_year = k 
         year_list.append(this_year)
 
-    print ("bx:", bronx_endpoints)
     return render_template(
     "index.html",
     bronx_endpoints=bronx_endpoints,
     brooklyn_endpoints=brooklyn_endpoints,
     manhattan_endpoints=manhattan_endpoints,
     queens_endpoints=queens_endpoints,
-    staten_island_endpoints_endpoints=staten_island_endpoints,
+    staten_island_endpoints=staten_island_endpoints,
     years=years,
     year_list = year_list 
     )
-    print (data)
 
 @app.route('/year')
 def year(): 
@@ -109,6 +107,11 @@ def year():
         manhattan_value=manhattan_value,
         queens_value=queens_value,
         staten_island_value=staten_island_value,
+        bronx_scaled = 100 - int((bronx_value / 52000) * 100),
+        brooklyn_scaled = 100 - int((brooklyn_value / 52000) * 100),
+        manhattan_scaled = 100 - int((manhattan_value / 52000) * 100),
+        queens_scaled = 100 - int((queens_value / 52000) * 100),
+        staten_island_scaled = 100 - int((staten_island_value / 52000) * 100),
         year_list = year_list
     )
 
