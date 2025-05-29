@@ -70,6 +70,7 @@ def index():
         this_year = k 
         year_list.append(this_year)
 
+    print ("bx:", bronx_endpoints)
     return render_template(
     "index.html",
     bronx_endpoints=bronx_endpoints,

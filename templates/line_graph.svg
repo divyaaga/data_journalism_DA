@@ -5,9 +5,9 @@
 <g id = lineBronx>
      {% for point in bronx_endpoints %}
      <line x1="{{60 + loop.index0 * 7}}"
-          y1="{{450 - ((point[0] - 55) * (400 / 30))}}"
+          y1="{{450 - ((point[0] - 10000) * (400 / 13000))}}"
           x2="{{60 + (loop.index0 + 1) * 7}}"
-          y2="{{450 - ((point[1] - 55) * (400 / 30))}}"/>
+          y2="{{450 - ((point[1] - 10000) * (400 / 13000))}}"/>
      {% endfor %}
 </g>
 
