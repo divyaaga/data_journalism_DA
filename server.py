@@ -99,20 +99,24 @@ def year():
         this_year = k 
         year_list.append(this_year)
     
+    values = [bronx_value, brooklyn_value, manhattan_value, queens_value, staten_island_value]
+    average = int(sum(values) / len(values)) 
+
     return render_template(
         "year.html",
         year=requested_year,
-        bronx_value=bronx_value,
-        brooklyn_value=brooklyn_value,
-        manhattan_value=manhattan_value,
-        queens_value=queens_value,
-        staten_island_value=staten_island_value,
+        bronx_value=int(bronx_value),
+        brooklyn_value=int(brooklyn_value),
+        manhattan_value=int(manhattan_value),
+        queens_value=int(queens_value),
+        staten_island_value=int(staten_island_value),
         bronx_scaled = 100 - int((bronx_value / 52000) * 100),
         brooklyn_scaled = 100 - int((brooklyn_value / 52000) * 100),
         manhattan_scaled = 100 - int((manhattan_value / 52000) * 100),
         queens_scaled = 100 - int((queens_value / 52000) * 100),
         staten_island_scaled = 100 - int((staten_island_value / 52000) * 100),
-        year_list = year_list
+        year_list = year_list,
+        average = average
     )
 
 app.run(debug=True)

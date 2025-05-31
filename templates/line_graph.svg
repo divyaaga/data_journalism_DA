@@ -52,7 +52,7 @@
             y1="{{ 450 - (point[0] * (400 / 52000)) }}"
             x2="{{60 + (loop.index0 + 1) * 43}}"
             y2="{{ 450 - (point[1] * (400 / 52000)) }}"
-            stroke = "black"
+            stroke = "grey"
             stroke-width = "2px"/>
      {% endfor %}
 </g>
@@ -99,7 +99,7 @@
   <line x1="0" y1="60" x2="30" y2="60" stroke="orange" stroke-width="2"/>
   <text x="35" y="65" font-size="14">Queens</text>
 
-  <line x1="0" y1="80" x2="30" y2="80" stroke="black" stroke-width="2"/>
+  <line x1="0" y1="80" x2="30" y2="80" stroke="grey" stroke-width="2"/>
   <text x="35" y="85" font-size="14">Staten Island</text>
 </g>
  <text class="axis_label" transform="translate(20, 320) rotate(270)">Number of Crashes</text>

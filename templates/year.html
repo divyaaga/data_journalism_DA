@@ -18,6 +18,23 @@
     {% include 'NYC_boroughs.svg' %}
   </div>
 
+  <div id="legend" style="margin-top: -1170px; width: 320px; margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px;">
+      <span>0</span>
+      <span>10K</span>
+      <span>20K</span>
+      <span>30K</span>
+      <span>40K</span>
+      <span>50K</span>
+    </div>
+    <div style="
+      background: linear-gradient(to left, hsl(140, 60%, 87%), hsl(140, 60%, 9%));
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    "></div>
+  </div>
+
   <script>
      var bronx=document.getElementsByClassName("The_Bronx")
      var brooklyn=document.getElementsByClassName("Brooklyn")
@@ -42,8 +59,8 @@
      }
   </script>
 
-  <div class="data-display" style="margin-top: -1170px">
-    <p><strong>In the {{year}}, this was the number of car crashes in each borough: </p>
+  <div class="data-display" style="margin-top: 0px">
+    <p><strong>In the {{year}}, there was an average of {{average}} car crashes. For more specifics, this was the number of car crashes in each borough: </p>
     <p><strong>Bronx:</strong> {{ bronx_value }} crashes </p>
     <p><strong>Brooklyn:</strong> {{brooklyn_value }} crashes </p>
     <p><strong>Manhattan:</strong> {{ manhattan_value }} crashes </p>
