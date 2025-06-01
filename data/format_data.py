@@ -1,7 +1,7 @@
 import json
 
 
-f1 = open("data/cleaned_crashes.csv", "r")
+f1 = open("data/data_cleaned.csv", "r")
 lines = f1.readlines()
 year_keys = lines[1].strip().split(",")[1:] #just to get rid of the other stuff before the years
 print (year_keys)
