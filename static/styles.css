@@ -12,4 +12,9 @@ body{
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+    margin-left: 5px;
+  }
+
+  strong {
+    font-weight: 700;
   }

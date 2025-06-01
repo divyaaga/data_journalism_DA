@@ -38,6 +38,12 @@ def index():
     queens_endpoints = []
     staten_island_endpoints = []
 
+    bronx_total = 0
+    brooklyn_total = 0
+    manhattan_total = 0
+    queens_total = 0
+    staten_island_total = 0
+
 
     years = sorted([int(y) for y in data["Bronx"].keys()])
 
@@ -65,6 +71,21 @@ def index():
         staten_island_y2 = float(data["Staten Island"][year2])
         staten_island_endpoints.append([staten_island_y1, staten_island_y2])
 
+    num_years = len(years)
+    for year in years:
+        year_str = str(year)
+        bronx_total += float(data["Bronx"][year_str])
+        brooklyn_total += float(data["Brooklyn"][year_str])
+        manhattan_total += float(data["Manhattan"][year_str])
+        queens_total += float(data["Queens"][year_str])
+        staten_island_total += float(data["Staten Island"][year_str])
+
+    bronx_avg = round(bronx_total / num_years)
+    brooklyn_avg = round(brooklyn_total / num_years)
+    manhattan_avg = round(manhattan_total / num_years)
+    queens_avg = round(queens_total / num_years)
+    staten_island_avg = round(staten_island_total / num_years)
+
     year_list = []
     for k in data["Bronx"]: 
         this_year = k 
@@ -78,7 +99,12 @@ def index():
     queens_endpoints=queens_endpoints,
     staten_island_endpoints=staten_island_endpoints,
     years=years,
-    year_list = year_list 
+    year_list = year_list, 
+    bronx_avg=bronx_avg,
+    brooklyn_avg=brooklyn_avg,
+    manhattan_avg=manhattan_avg,
+    queens_avg=queens_avg,
+    staten_island_avg=staten_island_avg
     )
 
 @app.route('/year')
