@@ -67,11 +67,13 @@
      {% endif %}
   {% endfor %}
   
-
-{% for year_label in years %}
-  {% if (year_label|float) % 10 == 0 %}
-  <line x1="{{ 60 + loop.index0 * 7.2 }}" y1="445" x2="{{ 60 + loop.index0 * 7 }}" y2="452" stroke="black"/>
-  {% endif %}
+{% for year in years %}
+  <line 
+    x1="{{ 60 + loop.index0 * 43 }}" 
+    y1="447" 
+    x2="{{ 60 + loop.index0 * 43 }}" 
+    y2="452" 
+    stroke="black"/>
 {% endfor %}
 
 {% for val in range(5000, 55000, 5000) %}
