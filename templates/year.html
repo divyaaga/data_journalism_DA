@@ -28,7 +28,7 @@
       <span>50K</span>
     </div>
     <div style="
-      background: linear-gradient(to right, hsl(140, 60%, 87%), hsl(140, 60%, 9%));
+      background: linear-gradient(to right, hsl(140, 60%, 87%), hsl(140, 60%, 0%));
       height: 20px;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -61,11 +61,66 @@
 
   <div class="data-display" style="margin-top: 0px">
     <p style = "margin-bottom: -3px;">In the {{year}}, there was an average of {{average}} car crashes. For more specifics, this was the number of car crashes in each borough: </p>
-    <p style = "margin-bottom: -3px;"><strong>Bronx:</strong> {{ bronx_value }} crashes </p>
-    <p style = "margin-bottom: -3px;"><strong>Brooklyn:</strong> {{brooklyn_value }} crashes </p>
-    <p style = "margin-bottom: -3px;"> <strong>Manhattan:</strong> {{ manhattan_value }} crashes </p>
-    <p style = "margin-bottom: -3px;"><strong>Queens:</strong> {{ queens_value }} crashes </p>
-    <p style = "margin-bottom: 20px;"><strong>Staten Island:</strong> {{ staten_island_value }} crashes </p>
+    <p style="margin-bottom: -3px;">
+      <strong>Bronx:</strong> {{ bronx_value }} crashes.
+      This number is 
+      {% if bronx_value > bronx_avg %}
+        above
+      {% elif bronx_value < bronx_avg %}
+        below
+      {% else %}
+        equal to
+      {% endif %}
+      the average ({{ bronx_avg}}).
+    </p>    
+    <p style = "margin-bottom: -3px;">
+      <strong>Brooklyn:</strong> {{ brooklyn_value }} crashes.
+      This number is 
+      {% if brooklyn_value > brooklyn_avg %}
+        above
+      {% elif brooklyn_value < brooklyn_avg %}
+        below
+      {% else %}
+        equal to
+      {% endif %}
+      the average ({{ brooklyn_avg}}).
+    </p>
+    <p style = "margin-bottom: -3px;">
+      <strong>Manhattan:</strong> {{ manhattan_value }} crashes.
+      This number is 
+      {% if manhattan_value > manhattan_avg %}
+        above
+      {% elif manhattan_value < manhattan_avg %}
+        below
+      {% else %}
+        equal to
+      {% endif %}
+      the average ({{ manhattan_avg}}).
+    </p>
+    <p style = "margin-bottom: -3px;">
+      <strong>Queens:</strong> {{ queens_value }} crashes.
+      This number is 
+      {% if queens_value > queens_avg %}
+        above
+      {% elif queens_value < queens_avg %}
+        below
+      {% else %}
+        equal to
+      {% endif %}
+      the average ({{ queens_avg}}).
+    </p>
+    <p style = "margin-bottom: 20px;">
+      <strong>Staten Island:</strong> {{ staten_island_value }} crashes.
+      This number is 
+      {% if staten_island_value > staten_island_avg %}
+        above
+      {% elif staten_island_value < staten_island_avg %}
+        below
+      {% else %}
+        equal to
+      {% endif %}
+      the average ({{ staten_island_avg}}).
+    </p>
   </div>
 
 
